@@ -19,6 +19,7 @@ public class AddressDaoList {
 	private List<HumanDto> humanList = new ArrayList<HumanDto>();
 	private FileProc fp;
 	
+	// Constructor
 	public AddressDaoList() {
 		fp = new FileProc("address");
 		fileload();
@@ -73,7 +74,9 @@ public class AddressDaoList {
 		String name = sc.next();
 		
 		for (HumanDto h : humanList) {
-			System.out.println(h.toString());
+			if (name.equals(h.getName())) {
+				System.out.println(h.toString());
+			}
 		}
 		
 	}
@@ -134,7 +137,7 @@ public class AddressDaoList {
 		
 	}
 	
-	// TODO filesave
+	// TODO file save
 	public void filesave() {
 		
 		String dataArr[] = new String[humanList.size()];
@@ -147,7 +150,7 @@ public class AddressDaoList {
 		
 	}
 	
-	// TODO fileload
+	// TODO file load
 	public void fileload() {
 		
 		String data[] = fp.read();
